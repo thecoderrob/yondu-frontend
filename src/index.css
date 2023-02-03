@@ -1,0 +1,79 @@
+:root {
+  --primary: #d81e5b;
+  --secondary: #8c38ff;
+  --dark: #131a26;
+  --light: #eee;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  background-color: var(--light);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  padding: clamp(0.5rem, 1.75vw, 1.5rem);
+}
+
+.calculator-grid {
+  display: grid;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.calculator__display {
+  grid-column: 1 / -1;
+  background-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0.75rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.calculator__display .previous-operand {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+}
+.calculator__display .current-operand {
+  color: var(--light);
+  font-size: 2.5rem;
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid var(--light);
+  color: var(--light);
+  outline: none;
+  background-color: var(--dark);
+  transition: 0.4s;
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  opacity: 0.9;
+}
+
+.calculator-grid > .bg-accent {
+  background-color: var(--primary);
+}
